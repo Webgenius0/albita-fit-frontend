@@ -1,3 +1,4 @@
+import { createBrowserRouter } from "react-router-dom";
 import Layout from "@/layout/Layout";
 import CookieConsent from "@/pages/CookieConsent";
 import Home from "@/pages/Home";
@@ -6,8 +7,8 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
 import Register from "@/pages/Register";
 import GetStarted from "@/pages/GetStarted";
-import { createBrowserRouter } from "react-router-dom";
 import Welcome from "@/pages/Welcome";
+import Plans from "@/pages/Plans";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/welcome",
         element: <Welcome />,
+      },
+      {
+        path: "/plans",
+        element: <Plans />,
       },
     ],
   },

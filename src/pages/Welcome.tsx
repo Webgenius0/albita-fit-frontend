@@ -74,7 +74,7 @@ const Welcome = () => {
       </div>
 
       <div className="mb-20 flex justify-center">
-        <CommonButton text="Continue" target="/plans" />
+        <CommonButton text="Continuar" target="/plans" />
       </div>
     </CommonContainer>
   );

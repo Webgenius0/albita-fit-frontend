@@ -21,7 +21,7 @@ const GetStarted = () => {
           <CommonButton
             text="Comenzar"
             variant="hover"
-            target="/"
+            target="/login"
             textBold
             hasArrow
           />
