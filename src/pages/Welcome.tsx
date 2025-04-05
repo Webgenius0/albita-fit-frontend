@@ -36,7 +36,7 @@ const Welcome = () => {
         <CommonTitle alignCenter>Bienvenido AlbitaFit</CommonTitle>
 
         <CommonParagraph>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
+          Lorem Ipsum is simply dummy text of the typesetting
           industry. Lorem Ipsum has been the industry's scrambled it to make a
           type specimen book.
         </CommonParagraph>
