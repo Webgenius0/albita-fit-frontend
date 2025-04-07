@@ -10,3 +10,7 @@
 .sidebar_icon_holder.active svg path {
   fill: #ff94c7;
 }
+
+.sidebar_icon_holder.active p {
+  color: #ff94c7;
+}
