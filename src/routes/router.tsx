@@ -9,6 +9,7 @@ import Register from "@/pages/Register";
 import GetStarted from "@/pages/GetStarted";
 import Welcome from "@/pages/Welcome";
 import Plans from "@/pages/Plans";
+import ResetPassword from "@/pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/plans",
         element: <Plans />,
+      },
+      {
+        path: "/reset-password",
+        element: <ResetPassword />,
       },
     ],
   },

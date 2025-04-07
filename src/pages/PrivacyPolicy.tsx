@@ -1,8 +1,8 @@
 import CommonContainer from "@/components/common/CommonContainer";
-import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import CommonTitle from "@/components/common/CommonTitle";
+import BackButton from "@/components/common/BackButton";
 
 const PrivacyPolicy = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -17,14 +17,13 @@ const PrivacyPolicy = () => {
 
   return (
     <CommonContainer>
-      {/* Back Button */}
-      <Link to="/register" className="mb-8 inline-block text-[#e16891]">
-        <ArrowLeft className="h-6 w-6" />
-      </Link>
+      <BackButton target="/register" />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}
-        <CommonTitle textSize="sm" alignCenter >Política de privacidad ALBITA FIT</CommonTitle>
+        <CommonTitle textSize="sm" alignCenter>
+          Política de privacidad ALBITA FIT
+        </CommonTitle>
         {/* Privacy Policy Content */}
         <div className="my-8 space-y-6">
           <p className="text-sm">

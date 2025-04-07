@@ -40,6 +40,11 @@ body {
   scrollbar-gutter: 10px;
 }
 
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button {
+  display: none;
+}
+
 /* custom styles */
 
 .subtle_bounce {
@@ -73,6 +78,27 @@ body {
     rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   transition: 0.3s ease-in-out;
+}
+
+.verficiation_input input {
+  border-bottom: 1px solid #e77b9b;
+  width: 60px !important;
+  height: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0a0a0a;
+}
+
+.verficiation_input::selection {
+  background-color: transparent;
+}
+
+.verficiation_input input:focus {
+  outline-color: #e77b9b;
+}
+
+.verficiation_input > div {
+  gap: 20px;
 }
 
 /* custom styles */
