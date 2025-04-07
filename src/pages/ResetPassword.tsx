@@ -29,7 +29,7 @@ const ResetPassword = () => {
       <BackButton target="/login" />
       <div className="flex h-[80vh] w-full flex-col items-center justify-center gap-y-6">
         <PinkLogo size="sm" />
-
+ 
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex max-w-[550px] flex-col items-center gap-y-6 text-center"

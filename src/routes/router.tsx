@@ -10,6 +10,7 @@ import GetStarted from "@/pages/GetStarted";
 import Welcome from "@/pages/Welcome";
 import Plans from "@/pages/Plans";
 import ResetPassword from "@/pages/ResetPassword";
+import DashboardLayout from "@/layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,25 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "/",
+            element: <Home />,
+          },
+          {
+            path: "/profile",
+            element: <p>profile</p>,
+          },
+          {
+            path: "/diet",
+            element: <p>diet</p>,
+          },
+          {
+            path: "/train",
+            element: <p>train</p>,
+          },
+        ],
       },
       {
         path: "/get-started",

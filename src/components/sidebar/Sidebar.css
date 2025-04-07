@@ -1,0 +1,12 @@
+.sidebar_icon_holder svg {
+  width: 100%;
+  height: 100%;
+}
+.sidebar_icon_holder svg path {
+  transition: 0.3s ease-in-out;
+  stroke-width: 3;
+}
+
+.sidebar_icon_holder.active svg path {
+  fill: #ff94c7;
+}
