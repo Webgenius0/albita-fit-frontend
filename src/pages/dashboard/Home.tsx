@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import dashlogo from "@/assets/images/dashboard-logo.svg";
 import CommonTitle from "@/components/common/CommonTitle";
-import { Fade } from "react-awesome-reveal";
 import BannerCards from "@/components/home/BannerCards";
 
 import bannerbg1 from "@/assets/images/banner-card-1.jpg";
@@ -29,21 +28,15 @@ const Home = () => {
   return (
     <div className="px-[100px] py-14">
       {/* top part */}
-      <Fade direction="up" triggerOnce>
-        <div className="flex w-fit gap-8">
-          <div className="h-14 w-14">
-            <img
-              src={dashlogo}
-              className="h-full w-full"
-              alt="dashboard_logo"
-            />
-          </div>
-          {/* user name */}
-          <CommonTitle>
-            <p className="font-bold text-[#222]">¡Hola elena!</p>
-          </CommonTitle>
+      <div className="flex w-fit gap-8">
+        <div className="h-14 w-14">
+          <img src={dashlogo} className="h-full w-full" alt="dashboard_logo" />
         </div>
-      </Fade>
+        {/* user name */}
+        <CommonTitle>
+          <p className="font-bold text-[#222]">¡Hola elena!</p>
+        </CommonTitle>
+      </div>
 
       {/* card part */}
       <div className="my-11 grid grid-cols-2 gap-x-10 gap-y-9">
