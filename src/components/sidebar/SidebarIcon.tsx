@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 type PropTypes = {
-  iconType: "home" | "profile" | "diet" | "train";
+  iconType: "Home" | "Perfil" | "Dieta" | "Entrena";
   target: string;
 };
 
@@ -14,7 +14,7 @@ const SidebarIcon = ({ iconType, target = "/" }: PropTypes) => {
       className="sidebar_icon_holder flex flex-col items-center gap-y-2"
     >
       <div className="block h-8 w-8">
-        {iconType === "home" ? (
+        {iconType === "Home" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="33"
@@ -31,7 +31,7 @@ const SidebarIcon = ({ iconType, target = "/" }: PropTypes) => {
               fill="#757575"
             />
           </svg>
-        ) : iconType === "profile" ? (
+        ) : iconType === "Perfil" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="33"
@@ -44,7 +44,7 @@ const SidebarIcon = ({ iconType, target = "/" }: PropTypes) => {
               fill="#757575"
             />
           </svg>
-        ) : iconType === "diet" ? (
+        ) : iconType === "Dieta" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="33"
@@ -57,7 +57,7 @@ const SidebarIcon = ({ iconType, target = "/" }: PropTypes) => {
               fill="#757575"
             />
           </svg>
-        ) : iconType === "train" ? (
+        ) : iconType === "Entrena" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="33"

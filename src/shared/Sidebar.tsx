@@ -2,24 +2,24 @@ import SidebarIcon from "@/components/sidebar/SidebarIcon";
 import { Fade } from "react-awesome-reveal";
 
 type linkType = {
-  name: "home" | "profile" | "diet" | "train";
+  name: "Home" | "Perfil" | "Dieta" | "Entrena";
   target: string;
 };
 const links: linkType[] = [
   {
-    name: "home",
+    name: "Home",
     target: "/",
   },
   {
-    name: "profile",
+    name: "Perfil",
     target: "/profile",
   },
   {
-    name: "diet",
+    name: "Dieta",
     target: "/diet",
   },
   {
-    name: "train",
+    name: "Entrena",
     target: "/train",
   },
 ];

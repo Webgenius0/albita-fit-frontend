@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "@/layout/Layout";
 import CookieConsent from "@/pages/CookieConsent";
-import Home from "@/pages/Home";
+import Home from "@/pages/dashboard/Home";
 import Login from "@/pages/Login";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
