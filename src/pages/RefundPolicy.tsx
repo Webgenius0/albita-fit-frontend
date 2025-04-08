@@ -1,8 +1,9 @@
 import CommonContainer from "@/components/common/CommonContainer";
-import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
 import CommonTitle from "@/components/common/CommonTitle";
+import BackButton from "@/components/common/BackButton";
 
 const RefundPolicy = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -17,10 +18,7 @@ const RefundPolicy = () => {
 
   return (
     <CommonContainer>
-      {/* Back Button */}
-      <Link to="/privacy-policy" className="mb-8 inline-block text-[#e16891]">
-        <ArrowLeft className="h-6 w-6" />
-      </Link>
+      <BackButton target="/privacy-policy" />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}

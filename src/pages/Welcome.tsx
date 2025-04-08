@@ -22,6 +22,7 @@ import "swiper/css/navigation";
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import SwiperNavButtons from "@/components/welcome/SwiperNavButtons";
+import CommonButton from "@/components/common/CommonButton";
 
 const slides = [mockup1, mockup2, mockup3, mockup2];
 
@@ -36,9 +37,9 @@ const Welcome = () => {
         <CommonTitle alignCenter>Bienvenido AlbitaFit</CommonTitle>
 
         <CommonParagraph>
-          Lorem Ipsum is simply dummy text of the typesetting
-          industry. Lorem Ipsum has been the industry's scrambled it to make a
-          type specimen book.
+          Lorem Ipsum is simply dummy text of the typesetting industry. Lorem
+          Ipsum has been the industry's scrambled it to make a type specimen
+          book.
         </CommonParagraph>
       </div>
 
@@ -70,6 +71,10 @@ const Welcome = () => {
           ))}
           <SwiperNavButtons />
         </Swiper>
+      </div>
+
+      <div className="mb-20 flex justify-center">
+        <CommonButton text="Continuar" target="/plans" />
       </div>
     </CommonContainer>
   );

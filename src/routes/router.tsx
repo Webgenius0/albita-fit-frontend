@@ -1,13 +1,16 @@
+import { createBrowserRouter } from "react-router-dom";
 import Layout from "@/layout/Layout";
 import CookieConsent from "@/pages/CookieConsent";
-import Home from "@/pages/Home";
+import Home from "@/pages/dashboard/Home";
 import Login from "@/pages/Login";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
 import Register from "@/pages/Register";
 import GetStarted from "@/pages/GetStarted";
-import { createBrowserRouter } from "react-router-dom";
 import Welcome from "@/pages/Welcome";
+import Plans from "@/pages/Plans";
+import ResetPassword from "@/pages/ResetPassword";
+import DashboardLayout from "@/layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,25 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "/",
+            element: <Home />,
+          },
+          {
+            path: "/profile",
+            element: <p>profile</p>,
+          },
+          {
+            path: "/diet",
+            element: <p>diet</p>,
+          },
+          {
+            path: "/train",
+            element: <p>train</p>,
+          },
+        ],
       },
       {
         path: "/get-started",
@@ -45,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: "/welcome",
         element: <Welcome />,
+      },
+      {
+        path: "/plans",
+        element: <Plans />,
+      },
+      {
+        path: "/reset-password",
+        element: <ResetPassword />,
       },
     ],
   },

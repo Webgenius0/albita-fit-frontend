@@ -14,14 +14,14 @@ const GetStarted = () => {
         <img
           src={logo}
           alt="transparent_logo"
-          className="relative h-[230px] w-[230px]"
+          className="relative h-[230px] w-[230px] subtle_bounce"
         />
 
         <div>
           <CommonButton
             text="Comenzar"
             variant="hover"
-            target="/"
+            target="/login"
             textBold
             hasArrow
           />
