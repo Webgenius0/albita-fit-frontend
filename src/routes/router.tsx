@@ -11,6 +11,8 @@ import Welcome from "@/pages/Welcome";
 import Plans from "@/pages/Plans";
 import ResetPassword from "@/pages/ResetPassword";
 import DashboardLayout from "@/layout/DashboardLayout";
+import HomeTraining from "@/pages/dashboard/HomeTraining";
+import GymTraining from "@/pages/dashboard/GymTraining";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
           {
             path: "/train",
             element: <p>train</p>,
+          },
+          {
+            path: "/home-training",
+            element: <HomeTraining />,
+          },
+          {
+            path: "/gym-training",
+            element: <GymTraining />,
           },
         ],
       },

@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 import dashlogo from "@/assets/images/dashboard-logo.svg";
 import CommonTitle from "@/components/common/CommonTitle";
 import BannerCards from "@/components/home/BannerCards";
@@ -13,18 +10,6 @@ import bannerbg5 from "@/assets/images/banner-compact-2.jpg";
 import BannerCompactCard from "@/components/home/BannerCompactCard";
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const first_time_user = localStorage.getItem("first_time_user");
-
-    if (!first_time_user) {
-      navigate("/get-started");
-    }
-
-    // eslint-disable-next-line
-  }, []);
-
   return (
     <div className="px-[100px] py-14">
       {/* top part */}
@@ -64,13 +49,13 @@ const Home = () => {
             <BannerCompactCard
               coverImg={bannerbg4}
               title="Entrenar en Casa"
-              targetLink="/"
+              targetLink="/home-training"
               targetText="Empezar ahora"
             />
             <BannerCompactCard
               coverImg={bannerbg5}
-              title="Entrenar en Casa"
-              targetLink="/"
+              title="Entrenar en el Gym"
+              targetLink="/gym-training"
               targetText="Empezar ahora"
             />
           </div>
