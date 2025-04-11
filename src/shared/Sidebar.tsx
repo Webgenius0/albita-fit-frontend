@@ -25,7 +25,7 @@ const links: linkType[] = [
 ];
 const Sidebar = () => {
   return (
-    <div className="sidebar_component h-screen w-full max-w-[100px] rounded-r-2xl rounded-b-2xl border-r-[2px] border-[#9E0036]">
+    <div className="sidebar_component absolute top-0 left-0 z-[100] h-screen w-full max-w-[100px] rounded-r-2xl rounded-b-2xl border-r-[2px] border-[#9E0036] bg-white">
       <div className="flex h-full w-full flex-col items-center justify-center gap-y-8">
         <Fade cascade direction="up" duration={600} damping={0.3}>
           {links.map((item, index) => (

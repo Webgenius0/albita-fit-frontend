@@ -3,10 +3,10 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <div className="flex">
+    <div className="relative">
       <Sidebar />
 
-      <div className="max-h-screen w-full overflow-y-scroll">
+      <div className="ml-auto max-h-screen min-h-screen w-[calc(100%-80px)] overflow-y-scroll">
         <Outlet />
         <ScrollRestoration />
       </div>
