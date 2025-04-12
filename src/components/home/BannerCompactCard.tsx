@@ -15,14 +15,19 @@ const BannerCompactCard = ({
 }: PropTypes) => {
   return (
     <div className="banner_compact_card overflow-hidden rounded-[12px]">
-      <div className="aspect-square">
+      <div className="h-[280px] w-full lg:aspect-square lg:w-auto lg:h-auto">
         <img src={coverImg} alt="" className="h-full w-full object-cover" />
       </div>
 
       <div className="flex flex-col items-center gap-y-3 p-3">
         <p className="text-text-primary text-2xl font-bold"> {title} </p>
 
-        <CommonButton text={targetText} target={targetLink} variant="hover" textPink />
+        <CommonButton
+          text={targetText}
+          target={targetLink}
+          variant="hover"
+          textPink
+        />
       </div>
     </div>
   );

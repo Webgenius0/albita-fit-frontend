@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 import dashlogo from "@/assets/images/dashboard-logo.svg";
 import CommonTitle from "@/components/common/CommonTitle";
 import BannerCards from "@/components/home/BannerCards";
@@ -13,22 +10,10 @@ import bannerbg5 from "@/assets/images/banner-compact-2.jpg";
 import BannerCompactCard from "@/components/home/BannerCompactCard";
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const first_time_user = localStorage.getItem("first_time_user");
-
-    if (!first_time_user) {
-      navigate("/get-started");
-    }
-
-    // eslint-disable-next-line
-  }, []);
-
   return (
-    <div className="px-[100px] py-14">
+    <div className="px-5 py-8 lg:px-[100px] lg:py-14">
       {/* top part */}
-      <div className="flex w-fit gap-8">
+      <div className="flex w-fit items-center gap-5 lg:gap-8">
         <div className="h-14 w-14">
           <img src={dashlogo} className="h-full w-full" alt="dashboard_logo" />
         </div>
@@ -39,7 +24,7 @@ const Home = () => {
       </div>
 
       {/* card part */}
-      <div className="my-11 grid grid-cols-2 gap-x-10 gap-y-9">
+      <div className="my-11 grid grid-cols-1 gap-x-10 gap-y-5 lg:grid-cols-2 lg:gap-y-9">
         <BannerCards
           bannerImg={bannerbg1}
           title="Unete a nuestro Plan Oro"
@@ -60,17 +45,17 @@ const Home = () => {
           <h3 className="font-satoshi text-2xl font-semibold text-[#222] uppercase">
             Elige donde entrenar
           </h3>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <BannerCompactCard
               coverImg={bannerbg4}
               title="Entrenar en Casa"
-              targetLink="/"
+              targetLink="/home-training"
               targetText="Empezar ahora"
             />
             <BannerCompactCard
               coverImg={bannerbg5}
-              title="Entrenar en Casa"
-              targetLink="/"
+              title="Entrenar en el Gym"
+              targetLink="/gym-training"
               targetText="Empezar ahora"
             />
           </div>
