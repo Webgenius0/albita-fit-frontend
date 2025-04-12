@@ -10,11 +10,11 @@ const GetStarted = () => {
       }}
       className="relative flex h-screen w-screen items-center justify-center bg-cover bg-center after:absolute after:top-0 after:left-0 after:h-full after:w-full after:bg-[rgba(0,0,0,0.5)]"
     >
-      <div className="relative z-10 flex flex-col items-center gap-20">
+      <div className="relative z-10 flex flex-col items-center gap-10 lg:gap-20">
         <img
           src={logo}
           alt="transparent_logo"
-          className="relative h-[230px] w-[230px] subtle_bounce"
+          className="subtle_bounce relative h-[140px] w-[140px] lg:h-[230px] lg:w-[230px]"
         />
 
         <div>

@@ -5,9 +5,9 @@ import bglogo from "@/assets/images/plan-logo-bg.svg";
 
 const SessionArea = ({ sessionData }: { sessionData: SessionDataType[] }) => {
   return (
-    <div className="relative px-12 py-10">
+    <div className="relative px-5 py-10 lg:px-12">
       {/* video Grid Holder */}
-      <div className="relative z-40 mb-20 grid grid-cols-3 gap-x-7 gap-y-10">
+      <div className="tab:grid-cols-2 relative z-40 mb-12 grid grid-cols-1 gap-x-7 gap-y-7 lg:mb-20 lg:grid-cols-3 lg:gap-y-10">
         {sessionData.map((item, index) => (
           <div
             className="session_card hover:border-primary-pink flex cursor-pointer items-center gap-5 rounded-[13px] border-[1.5px] border-transparent bg-white px-5 py-3 duration-500 ease-in-out hover:drop-shadow-2xl"

@@ -44,12 +44,12 @@ const Welcome = () => {
       </div>
 
       {/* slider */}
-      <div className="welcome_effect_slider relative mx-auto my-24 lg:max-w-[70%]">
+      <div className="welcome_effect_slider relative mx-auto my-10 lg:my-24 lg:max-w-[70%]">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={2}
+          slidesPerView={1}
           coverflowEffect={{
             rotate: 0,
             stretch: 100,
@@ -61,6 +61,11 @@ const Welcome = () => {
           modules={[EffectCoverflow, Pagination]}
           className="mySwiper"
           loop={true}
+          breakpoints={{
+            767: {
+              slidesPerView: 2,
+            },
+          }}
         >
           {slides.map((item, index) => (
             <SwiperSlide key={index}>

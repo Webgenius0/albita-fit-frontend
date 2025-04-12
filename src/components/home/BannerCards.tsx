@@ -28,9 +28,9 @@ const BannerCards = ({
         style={{
           backgroundImage: `url(${bannerImg})`,
         }}
-        className="banner_card_cover relative flex min-h-[350px] w-full grow items-center justify-start overflow-hidden rounded-2xl bg-cover bg-center"
+        className="banner_card_cover relative flex min-h-[280px] w-full grow items-center justify-start overflow-hidden rounded-2xl bg-cover bg-center lg:min-h-[350px]"
       >
-        <div className="relative z-20 max-w-[60%] space-y-4 p-7">
+        <div className="relative z-20 max-w-[80%] space-y-4 p-7 lg:max-w-[60%]">
           <h3 className="text-3xl font-extrabold text-[#EEE] lg:leading-10 xl:text-4xl xl:text-[50px] xl:leading-[60px]">
             {" "}
             {title}{" "}

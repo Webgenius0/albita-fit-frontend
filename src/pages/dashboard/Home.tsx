@@ -11,9 +11,9 @@ import BannerCompactCard from "@/components/home/BannerCompactCard";
 
 const Home = () => {
   return (
-    <div className="px-[100px] py-14">
+    <div className="px-5 py-8 lg:px-[100px] lg:py-14">
       {/* top part */}
-      <div className="flex w-fit gap-8">
+      <div className="flex w-fit items-center gap-5 lg:gap-8">
         <div className="h-14 w-14">
           <img src={dashlogo} className="h-full w-full" alt="dashboard_logo" />
         </div>
@@ -24,7 +24,7 @@ const Home = () => {
       </div>
 
       {/* card part */}
-      <div className="my-11 grid grid-cols-2 gap-x-10 gap-y-9">
+      <div className="my-11 grid grid-cols-1 gap-x-10 gap-y-5 lg:grid-cols-2 lg:gap-y-9">
         <BannerCards
           bannerImg={bannerbg1}
           title="Unete a nuestro Plan Oro"
@@ -45,7 +45,7 @@ const Home = () => {
           <h3 className="font-satoshi text-2xl font-semibold text-[#222] uppercase">
             Elige donde entrenar
           </h3>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <BannerCompactCard
               coverImg={bannerbg4}
               title="Entrenar en Casa"
