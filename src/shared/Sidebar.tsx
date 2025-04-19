@@ -7,6 +7,7 @@ type linkType = {
   name: "Home" | "Perfil" | "Dieta" | "Entrena";
   target: string;
 };
+ 
 const links: linkType[] = [
   {
     name: "Home",

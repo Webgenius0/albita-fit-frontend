@@ -6,7 +6,7 @@ const DashboardLayout = () => {
     <div className="relative">
       <Sidebar />
 
-      <div className="ml-auto max-h-screen min-h-screen overflow-y-scroll lg:w-[calc(100%-80px)]">
+      <div className="ml-auto max-h-screen min-h-screen overflow-y-scroll lg:w-[calc(100%-90px)]">
         <Outlet />
         <ScrollRestoration />
       </div>
