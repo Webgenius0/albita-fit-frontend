@@ -23,7 +23,7 @@ const links: linkType[] = [
   },
   {
     name: "Entrena",
-    target: "/train",
+    target: "/home-training",
   },
 ];
 const Sidebar = () => {
