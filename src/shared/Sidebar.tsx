@@ -7,6 +7,7 @@ type linkType = {
   name: "Home" | "Perfil" | "Dieta" | "Entrena";
   target: string;
 };
+ 
 const links: linkType[] = [
   {
     name: "Home",
@@ -22,7 +23,7 @@ const links: linkType[] = [
   },
   {
     name: "Entrena",
-    target: "/train",
+    target: "/home-training",
   },
 ];
 const Sidebar = () => {

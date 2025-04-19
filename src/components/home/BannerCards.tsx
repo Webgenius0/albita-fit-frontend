@@ -3,7 +3,7 @@ import CommonButton from "../common/CommonButton";
 type PropTypes = {
   title: string;
   bannerImg: string;
-  heading: string;
+  heading?: string;
   description?: string;
   targetLink: string;
   targetText: string;

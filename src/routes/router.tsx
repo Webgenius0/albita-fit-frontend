@@ -13,6 +13,8 @@ import ResetPassword from "@/pages/ResetPassword";
 import DashboardLayout from "@/layout/DashboardLayout";
 import HomeTraining from "@/pages/dashboard/HomeTraining";
 import GymTraining from "@/pages/dashboard/GymTraining";
+import Diet from "@/pages/dashboard/Diet";
+import NutritionPlan from "@/pages/dashboard/NutritionPlan";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,11 @@ const router = createBrowserRouter([
           },
           {
             path: "/diet",
-            element: <p>diet</p>,
+            element: <Diet />,
+          },
+          {
+            path: "/diet/nutrition-plan",
+            element: <NutritionPlan />,
           },
           {
             path: "/train",
