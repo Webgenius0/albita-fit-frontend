@@ -11,7 +11,7 @@ const links = [
   },
   {
     text: "Datos",
-    link: "/",
+    link: "/profile/data",
   },
   {
     text: "Suscripción",
@@ -26,7 +26,7 @@ const links = [
 const linksExtra = [
   {
     text: "Contraseña",
-    link: "/",
+    link: "/reset-password",
   },
   {
     text: "Cambiar foto",
@@ -74,7 +74,8 @@ const ProfileLinks = () => {
         <div className="grid h-fit flex-1 border-t">
           {linksExtra.map((item, index) => (
             <div className="border-b">
-              <div
+              <Link
+                to={item.link}
                 key={index}
                 className={linkStyle + " " + `!max-w-[50%] pl-10`}
               >
@@ -96,7 +97,7 @@ const ProfileLinks = () => {
                     />
                   </svg>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

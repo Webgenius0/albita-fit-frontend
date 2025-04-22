@@ -18,6 +18,7 @@ import NutritionPlan from "@/pages/dashboard/NutritionPlan";
 import Profile from "@/pages/dashboard/Profile";
 import Tutorials from "@/pages/dashboard/Tutorials";
 import ProfileLinks from "@/components/profile/ProfileLinks";
+import ProfileData from "@/pages/dashboard/ProfileData";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
               {
                 path: "/profile/tutorials",
                 element: <Tutorials />,
+              },
+              {
+                path: "/profile/data",
+                element: <ProfileData />,
               },
             ],
           },
