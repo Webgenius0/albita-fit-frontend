@@ -5,11 +5,14 @@ import PinkLogo from "@/components/common/PinkLogo";
 
 import bglogo1 from "@/assets/images/plan-logo-bg.svg";
 import bglogo2 from "@/assets/images/plan-logo-bg-2.svg";
+import BackButton from "@/components/common/BackButton";
 
 const Plans = () => {
   const bgLogoStyle = `absolute  h-[240px] w-[260px] scale-115 z-[2] opacity-[0.5] -top-4`;
   return (
     <CommonContainer>
+      <BackButton />
+
       <div className="mx-auto my-12 flex max-w-[600px] flex-col gap-y-7 text-center">
         <div className="mx-auto w-fit">
           <PinkLogo size="sm" />
@@ -36,7 +39,7 @@ const Plans = () => {
           </div>
           <div className="relative z-10">
             <div className="mb-2 flex items-end">
-              <span className="text-6xl font-bold text-white shad">120€</span>
+              <span className="shad text-6xl font-bold text-white">120€</span>
               <span className="ml-2 text-xl font-medium text-white/80">
                 TRIMESTRAL
               </span>
