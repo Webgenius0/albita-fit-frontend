@@ -17,7 +17,7 @@ const CookieConsent = () => {
 
   return (
     <CommonContainer>
-      <BackButton target="/refund-policy" />
+      <BackButton  />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}

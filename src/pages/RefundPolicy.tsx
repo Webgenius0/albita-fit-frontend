@@ -18,7 +18,7 @@ const RefundPolicy = () => {
 
   return (
     <CommonContainer>
-      <BackButton target="/privacy-policy" />
+      <BackButton  />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}

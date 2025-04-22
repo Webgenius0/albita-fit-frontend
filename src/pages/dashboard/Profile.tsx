@@ -1,11 +1,11 @@
 import ProfileInfo from "@/components/profile/ProfileInfo";
-import ProfileLinks from "@/components/profile/ProfileLinks";
+import { Outlet } from "react-router-dom";
 
 const Profile = () => {
   return (
     <div className="space-y-11">
       <ProfileInfo />
-      <ProfileLinks />
+      <Outlet />
     </div>
   );
 };

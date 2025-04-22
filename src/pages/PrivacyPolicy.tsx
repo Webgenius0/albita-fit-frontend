@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
 
   return (
     <CommonContainer>
-      <BackButton target="/register" />
+      <BackButton  />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}

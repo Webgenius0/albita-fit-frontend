@@ -26,7 +26,7 @@ const ResetPassword = () => {
 
   return (
     <CommonContainer>
-      <BackButton target="/login" />
+      <BackButton  />
       <div className="flex h-[60vh] w-full flex-col items-center justify-center gap-y-6 lg:h-[80vh]">
         <PinkLogo size="sm" />
 

@@ -1,15 +1,18 @@
 import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-type PropTypes = {
-  target: string;
-};
-
-const BackButton = ({ target }: PropTypes) => {
+const BackButton = () => {
+  const navigate = useNavigate();
   return (
-    <Link to={target} className="mb-8 inline-block text-[#e16891]">
+    <div
+      onClick={(event) => {
+        event.preventDefault();
+        navigate(-1);
+      }}
+      className="mb-8 inline-block cursor-pointer text-[#e16891]"
+    >
       <ArrowLeft className="h-8 w-8" />
-    </Link>
+    </div>
   );
 };
 

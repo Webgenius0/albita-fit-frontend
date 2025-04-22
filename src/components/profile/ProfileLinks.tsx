@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const links = [
   {
     text: "Habla con el Team Albitafit ",
@@ -5,7 +7,7 @@ const links = [
   },
   {
     text: "Tutoriales",
-    link: "/",
+    link: "/profile/tutorials",
   },
   {
     text: "Datos",
@@ -13,7 +15,7 @@ const links = [
   },
   {
     text: "Suscripción",
-    link: "/",
+    link: "/plans",
   },
 
   {
@@ -46,7 +48,7 @@ const ProfileLinks = () => {
         <div className="grid flex-1 border-t border-r">
           {links.map((item, index) => (
             <div className="border-b">
-              <div key={index} className={linkStyle + " " + ``}>
+              <Link to={item.link} key={index} className={linkStyle + " " + ``}>
                 <p className="ml-[40%] w-fit">{item.text} </p>
                 <div className={linkArrowStyles}>
                   <svg
@@ -65,7 +67,7 @@ const ProfileLinks = () => {
                     />
                   </svg>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

@@ -12,7 +12,7 @@ const ProfileInfo = () => {
     <div className="px-16 py-14">
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-14">
-          <BackButton target="/" />
+          <BackButton />
 
           <div className="flex items-center gap-10">
             {/* profile section */}

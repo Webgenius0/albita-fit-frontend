@@ -16,6 +16,8 @@ import GymTraining from "@/pages/dashboard/GymTraining";
 import Diet from "@/pages/dashboard/Diet";
 import NutritionPlan from "@/pages/dashboard/NutritionPlan";
 import Profile from "@/pages/dashboard/Profile";
+import Tutorials from "@/pages/dashboard/Tutorials";
+import ProfileLinks from "@/components/profile/ProfileLinks";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
           {
             path: "/profile",
             element: <Profile />,
+            children: [
+              {
+                path: "/profile",
+                element: <ProfileLinks />,
+              },
+              {
+                path: "/profile/tutorials",
+                element: <Tutorials />,
+              },
+            ],
           },
           {
             path: "/diet",
