@@ -19,6 +19,8 @@ import Profile from "@/pages/dashboard/Profile";
 import Tutorials from "@/pages/dashboard/Tutorials";
 import ProfileLinks from "@/components/profile/ProfileLinks";
 import ProfileData from "@/pages/dashboard/ProfileData";
+import UserOnboard from "@/pages/UserOnboard";
+import AccountStatus from "@/pages/AccountStatus";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +106,14 @@ const router = createBrowserRouter([
       {
         path: "/reset-password",
         element: <ResetPassword />,
+      },
+      {
+        path: "/onboard",
+        element: <UserOnboard />,
+      },
+      {
+        path: "/account-status",
+        element: <AccountStatus />,
       },
     ],
   },
