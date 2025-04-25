@@ -1,7 +1,7 @@
 import logo from "@/assets/images/dashboard-logo.svg";
 
 import { ChevronLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type PropTypes = {
   bgImg: string;
@@ -15,6 +15,7 @@ const TrainingCover = ({
   heading = "Entrenar",
 }: PropTypes) => {
   const pillStyle = `bg-primary-pink px-4.5 py-1.5 lg:py-2.5 text-white rounded-[34px] font-semibold`;
+  const navigate = useNavigate();
   return (
     <div>
       {/* upper section */}
@@ -33,9 +34,14 @@ const TrainingCover = ({
               <img src={logo} className="h-full w-full" alt="dashboard_logo" />
             </div>
 
-            <Link to={"/"} className="block h-fit w-fit">
+            <div
+              onClick={() => {
+                return navigate(-1);
+              }}
+              className="block h-fit w-fit cursor-pointer"
+            >
               <ChevronLeft color="#e77b9b" className="size-12 lg:size-18" />
-            </Link>
+            </div>
           </div>
 
           {/* title area */}

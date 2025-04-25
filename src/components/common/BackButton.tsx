@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const BackButton = () => {
@@ -11,7 +11,7 @@ const BackButton = () => {
       }}
       className="mb-8 inline-block cursor-pointer text-[#e16891]"
     >
-      <ArrowLeft className="h-8 w-8" />
+      <ChevronLeft className="h-9 w-9" />
     </div>
   );
 };

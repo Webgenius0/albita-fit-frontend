@@ -21,6 +21,7 @@ import ProfileLinks from "@/components/profile/ProfileLinks";
 import ProfileData from "@/pages/dashboard/ProfileData";
 import UserOnboard from "@/pages/UserOnboard";
 import AccountStatus from "@/pages/AccountStatus";
+import SingleTraining from "@/pages/dashboard/SingleTraining";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
           {
             path: "/gym-training",
             element: <GymTraining />,
+          },
+          {
+            path: "/training-session/:id",
+            element: <SingleTraining />,
           },
         ],
       },
