@@ -22,6 +22,7 @@ import ProfileData from "@/pages/dashboard/ProfileData";
 import UserOnboard from "@/pages/UserOnboard";
 import AccountStatus from "@/pages/AccountStatus";
 import SingleTraining from "@/pages/dashboard/SingleTraining";
+import SelectPlan from "@/pages/SelectPlan";
 
 const router = createBrowserRouter([
   {
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
       {
         path: "/account-status",
         element: <AccountStatus />,
+      },
+      {
+        path: "/select-plan",
+        element: <SelectPlan />,
       },
     ],
   },

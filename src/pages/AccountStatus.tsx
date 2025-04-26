@@ -66,7 +66,7 @@ const AccountStatus = () => {
             target="mailto:support@albitafit.com"
           />
         ) : status === "confirmed" ? (
-          <CommonButton text="Selecionar un plan" target="/plans" />
+          <CommonButton text="Selecionar un plan" target="/select-plan" />
         ) : (
           ``
         )}
