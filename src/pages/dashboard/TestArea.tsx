@@ -8,12 +8,11 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ChevronLeft } from "lucide-react";
 import TestSlideTwo from "@/components/test-area/slides/TestSlideTwo";
-
-
+import TestSlideThree from "@/components/test-area/slides/TestSlideThree";
 
 const TestArea = () => {
   const testSlideHolderRef = useRef<HTMLDivElement | null>(null);
-  const [slideActive, setSlideActive] = useState(1);
+  const [slideActive, setSlideActive] = useState(2);
 
   useEffect(() => {
     if (testSlideHolderRef.current) {
@@ -52,6 +51,7 @@ const TestArea = () => {
           <div ref={testSlideHolderRef} className="relative z-50 flex">
             <TestSlideOne />
             <TestSlideTwo />
+            <TestSlideThree />
           </div>
 
           {/* background logo */}

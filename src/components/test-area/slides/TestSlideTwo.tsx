@@ -12,6 +12,8 @@ const arrowStyle = `h-9 w-14`;
 const pickerStyle = `age_picker_dialer  w-[90px]`;
 const pickerHeight = 340;
 const pickerItemHeight = 90;
+const pickerItemStyle = `text-primary-pink -rotate-90 text-[40px] font-bold duration-300 ease-in-out
+text-primary-pink -rotate-90 text-[40px] font-bold duration-300 ease-in-out`;
 // <------ common styles --------->
 
 // <------ main component --------->
@@ -115,9 +117,20 @@ const TestSlideTwo = () => {
                   <Picker.Item
                     key={option}
                     value={option}
-                    className="text-primary-pink -rotate-90 text-[40px] font-bold"
+                    className={pickerItemStyle}
                   >
-                    {option}
+                    {({ selected }) => (
+                      <span
+                        style={{
+                          color: selected
+                            ? "#E77B9B"
+                            : "rgba(232, 68, 121, 0.30)",
+                          scale: selected ? 1 : 0.7,
+                        }}
+                      >
+                        {option}
+                      </span>
+                    )}
                   </Picker.Item>
                 ))}
               </Picker.Column>
@@ -157,9 +170,20 @@ const TestSlideTwo = () => {
                   <Picker.Item
                     key={option}
                     value={option}
-                    className="text-primary-pink -rotate-90 text-[40px] font-bold"
+                    className={pickerItemStyle}
                   >
-                    {option}
+                    {({ selected }) => (
+                      <span
+                        style={{
+                          color: selected
+                            ? "#E77B9B"
+                            : "rgba(232, 68, 121, 0.30)",
+                          scale: selected ? 1 : 0.7,
+                        }}
+                      >
+                        {option}
+                      </span>
+                    )}
                   </Picker.Item>
                 ))}
               </Picker.Column>
