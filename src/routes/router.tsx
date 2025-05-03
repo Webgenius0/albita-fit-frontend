@@ -23,6 +23,7 @@ import UserOnboard from "@/pages/UserOnboard";
 import AccountStatus from "@/pages/AccountStatus";
 import SingleTraining from "@/pages/dashboard/SingleTraining";
 import SelectPlan from "@/pages/SelectPlan";
+import TestArea from "@/pages/dashboard/TestArea";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: "/select-plan",
         element: <SelectPlan />,
+      },
+      {
+        path: "/start-test",
+        element: <TestArea />,
       },
     ],
   },

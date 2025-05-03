@@ -85,7 +85,7 @@ const Plans = () => {
       </div>
 
       <div className="mb-20 flex justify-center">
-        <CommonButton text="Empezar test" target="/plans" />
+        <CommonButton text="Empezar test" target="/start-test" />
       </div>
     </CommonContainer>
   );

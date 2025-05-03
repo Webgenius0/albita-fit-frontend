@@ -124,6 +124,11 @@ body {
 .link_arrow_holder:hover div:has(svg) {
   margin-right: -30px;
 }
+
+.age_picker_dialer:has(pointer-events:none){
+  background-color: red;
+  pointer-events: none;
+}
 /* custom styles */
 
 :root {
