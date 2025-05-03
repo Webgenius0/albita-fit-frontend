@@ -1,28 +1,91 @@
 import CommonTitle from "@/components/common/CommonTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Picker from "react-mobile-picker";
 import CommonSlideWrapper from "../CommonSlideWrapper";
+import { useAppDispatch } from "@/redux/hooks";
+import { setInfo } from "@/redux/features/testSlice";
 
+// <------ common styles --------->
+const holderStyle = `flex flex-1 flex-col items-center gap-10`;
+const textStylePrimary = `text-primary-pink text-[64px] font-bold`;
+const arrowStyle = `h-9 w-14`;
+const pickerStyle = `age_picker_dialer  w-[90px]`;
+const pickerHeight = 340;
+const pickerItemHeight = 90;
+// <------ common styles --------->
+
+// <------ main component --------->
 const TestSlideTwo = () => {
+  const dispatch = useAppDispatch();
+
+  // weigth metric
+  const metrics: ["kg", "lb"] = ["kg", "lb"];
+  const [weightMetric, setWeightMetric] = useState<"kg" | "lb">("kg");
+
+  //   storing states values
   const [agePickerValue, setAgePickerValue] = useState({
-    age: 20,
+    age: 24,
   });
   const [weightPickerValue, setWeightPickerValue] = useState({
-    weight: 20,
+    weight: 48,
   });
+
+  useEffect(() => {
+    setWeightPickerValue({
+      weight: weightMetric === "kg" ? 48 : Math.round(48 * 2.20462),
+    });
+  }, [weightMetric]);
+
+  //   setting the values
+  useEffect(() => {
+    if (agePickerValue.age) {
+      dispatch(
+        setInfo({
+          age: agePickerValue.age,
+        }),
+      );
+    }
+
+    // eslint-disable-next-line
+  }, [agePickerValue]);
+  useEffect(() => {
+    if (weightPickerValue.weight) {
+      dispatch(
+        setInfo({
+          weight: weightPickerValue.weight,
+          weightMetric: weightMetric,
+        }),
+      );
+    }
+
+    // eslint-disable-next-line
+  }, [weightPickerValue, weightMetric]);
+
+  //   default values for age and weights
+  const ageValues = Array(100)
+    .fill(0)
+    .map((_, index) => index + 1);
+
+  const kgValues = Array(150)
+    .fill(0)
+    .map((_, index) => index + 1);
+  const lbValues = Array(330)
+    .fill(0)
+    .map((_, index) => index + 1);
+
+  const selectedMetricsValue =
+    weightMetric === "kg" ? [...kgValues] : [...lbValues];
 
   return (
     <CommonSlideWrapper>
       <div className="flex w-full items-start justify-between gap-20">
-        <div className="flex flex-1 flex-col items-center gap-10">
+        {/* age picker */}
+        <div className={holderStyle}>
           <CommonTitle textBold>¿Que edad tienes?</CommonTitle>
           <div className="flex flex-col items-center text-center">
-            <p className="text-primary-pink text-[64px] font-bold">
-              {" "}
-              {agePickerValue.age}{" "}
-            </p>
+            <p className={textStylePrimary}>{agePickerValue.age}</p>
 
-            <div className="h-9 w-14">
+            <div className={arrowStyle}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -38,41 +101,81 @@ const TestSlideTwo = () => {
               </svg>
             </div>
           </div>
-          <div className="age_picker_dialer -mt-[100px] w-[10%]">
+          <div className={pickerStyle + " " + " -mt-[130px]"}>
             <Picker
               value={agePickerValue}
               onChange={setAgePickerValue}
               wheelMode="normal"
               className="rotate-90 bg-[#FFE1EA]"
-              height={350}
-              itemHeight={90}
+              height={pickerHeight}
+              itemHeight={pickerItemHeight}
             >
               <Picker.Column name="age" className="text-4xl">
-                {Array(100)
-                  .fill(0)
-                  .map((_, index) => index + 1)
-                  .map((option) => (
-                    <Picker.Item
-                      key={option}
-                      value={option}
-                      className="text-primary-pink -rotate-90 text-[40px] font-bold"
-                    >
-                      {option}
-                    </Picker.Item>
-                  ))}
+                {ageValues.map((option) => (
+                  <Picker.Item
+                    key={option}
+                    value={option}
+                    className="text-primary-pink -rotate-90 text-[40px] font-bold"
+                  >
+                    {option}
+                  </Picker.Item>
+                ))}
               </Picker.Column>
             </Picker>
           </div>
         </div>
-        <div className="flex flex-1 flex-col items-center gap-10">
+
+        {/* weight picker */}
+        <div className={holderStyle}>
           <CommonTitle textBold>Peso</CommonTitle>
-          <div className="flex flex-col items-center text-center">
-            <p className="text-primary-pink text-[64px] font-bold">
-              {" "}
-              {weightPickerValue.weight}{" "}
+
+          {/* kg or lb switcher */}
+          <div className="flex overflow-hidden rounded-[16px] border border-[#E84479]">
+            {metrics.map((item, i) => (
+              <div
+                onClick={() => setWeightMetric(item)}
+                key={i}
+                className={`cursor-pointer px-16 py-4 text-2xl font-bold duration-300 ease-in-out ${weightMetric === item ? `bg-[#E84479] text-white` : ``} `}
+              >
+                {" "}
+                {item}{" "}
+              </div>
+            ))}
+          </div>
+
+          <div className={pickerStyle + " " + "-mt-[70px]"}>
+            <Picker
+              value={weightPickerValue}
+              onChange={setWeightPickerValue}
+              wheelMode="normal"
+              className="rotate-90 bg-[#FFE1EA]"
+              height={pickerHeight}
+              itemHeight={pickerItemHeight}
+            >
+              <Picker.Column name="weight" className="text-4xl">
+                {selectedMetricsValue.map((option) => (
+                  <Picker.Item
+                    key={option}
+                    value={option}
+                    className="text-primary-pink -rotate-90 text-[40px] font-bold"
+                  >
+                    {option}
+                  </Picker.Item>
+                ))}
+              </Picker.Column>
+            </Picker>
+          </div>
+
+          <div className="-mt-[150px] flex flex-col-reverse items-center text-center">
+            <p className={textStylePrimary}>
+              <span className="text-[#404040]">{weightPickerValue.weight}</span>
+              <span className="text-[30px] text-[#404040] opacity-60">
+                {" "}
+                {weightMetric}{" "}
+              </span>
             </p>
 
-            <div className="h-9 w-14">
+            <div className={arrowStyle}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -87,31 +190,6 @@ const TestSlideTwo = () => {
                 />
               </svg>
             </div>
-          </div>
-          <div className="age_picker_dialer -mt-[100px] w-[10%]">
-            <Picker
-              value={weightPickerValue}
-              onChange={setWeightPickerValue}
-              wheelMode="normal"
-              className="rotate-90 bg-[#FFE1EA]"
-              height={350}
-              itemHeight={90}
-            >
-              <Picker.Column name="weight" className="text-4xl">
-                {Array(100)
-                  .fill(0)
-                  .map((_, index) => index + 1)
-                  .map((option) => (
-                    <Picker.Item
-                      key={option}
-                      value={option}
-                      className="text-primary-pink -rotate-90 text-[40px] font-bold"
-                    >
-                      {option}
-                    </Picker.Item>
-                  ))}
-              </Picker.Column>
-            </Picker>
           </div>
         </div>
       </div>

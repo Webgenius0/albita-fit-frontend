@@ -125,9 +125,14 @@ body {
   margin-right: -30px;
 }
 
-.age_picker_dialer:has(pointer-events:none){
+.age_picker_dialer:has(pointer-events:none) {
   background-color: red;
   pointer-events: none;
+}
+
+.age_picker_dialer > div {
+  mask-image: none !important;
+  border-radius: 8px;
 }
 /* custom styles */
 
