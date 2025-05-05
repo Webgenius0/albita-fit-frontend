@@ -13,16 +13,32 @@ const pickerItemStyle = `text-primary-pink -rotate-90 text-[40px] font-bold dura
 text-primary-pink -rotate-90 text-[40px] font-bold duration-300 ease-in-out`;
 // <------ common styles --------->
 
+type PropTypes = {
+  defaultValue: number;
+  dataKey: string;
+};
+
 // <------ main component --------->
-const SlidePicker = () => {
+const SlidePicker = ({ defaultValue, dataKey }: PropTypes) => {
   const dispatch = useAppDispatch();
 
   //   storing states values
   const [pickerValue, setAgePickerValue] = useState({
-    value: 4,
+    value: defaultValue,
   });
 
-  const selectedMetricsValue = [3, 4, 5];
+  const dataArrayValues = [3, 4, 5];
+
+  //   setting data into redux
+  useEffect(() => {
+    dispatch(
+      setInfo({
+        [dataKey]: pickerValue.value,
+      }),
+    );
+
+    // eslint-disable-next-line
+  }, [pickerValue]);
 
   return (
     <div>
@@ -55,7 +71,7 @@ const SlidePicker = () => {
           itemHeight={pickerItemHeight}
         >
           <Picker.Column name="value" className="text-4xl">
-            {selectedMetricsValue.map((option) => (
+            {dataArrayValues.map((option) => (
               <Picker.Item
                 key={option}
                 value={option}
