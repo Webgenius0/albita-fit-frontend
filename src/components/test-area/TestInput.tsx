@@ -4,7 +4,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { setInfo } from "@/redux/features/testSlice";
 
 type PropTypes = {
-  title: string;
+  title?: string;
   type: React.HTMLInputTypeAttribute;
   placeholder?: string;
   storeKey: string;
@@ -26,7 +26,7 @@ const TestInput = ({ title, type, placeholder, storeKey }: PropTypes) => {
 
   return (
     <div className="w-full space-y-14">
-      <CommonTitle textBold>{title}</CommonTitle>
+      {title && <CommonTitle textBold>{title}</CommonTitle>}
 
       <input
         onChange={handleOnchange}

@@ -89,7 +89,7 @@ const SlidePicker = ({ defaultValue, dataKey }: PropTypes) => {
                 )}
               </Picker.Item>
             ))}
-          </Picker.Column>
+          </Picker.Column> 
         </Picker>
       </div>
     </div>

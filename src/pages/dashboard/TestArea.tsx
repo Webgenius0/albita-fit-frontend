@@ -10,10 +10,11 @@ import { ChevronLeft } from "lucide-react";
 import TestSlideTwo from "@/components/test-area/slides/TestSlideTwo";
 import TestSlideThree from "@/components/test-area/slides/TestSlideThree";
 import TestSlideFour from "@/components/test-area/slides/TestSlideFour";
+import TestSlideFive from "@/components/test-area/slides/TestSlideFive";
 
 const TestArea = () => {
   const testSlideHolderRef = useRef<HTMLDivElement | null>(null);
-  const [slideActive, setSlideActive] = useState(3);
+  const [slideActive, setSlideActive] = useState(4);
 
   useEffect(() => {
     if (testSlideHolderRef.current) {
@@ -54,6 +55,7 @@ const TestArea = () => {
             <TestSlideTwo />
             <TestSlideThree />
             <TestSlideFour />
+            <TestSlideFive />
           </div>
 
           {/* background logo */}
