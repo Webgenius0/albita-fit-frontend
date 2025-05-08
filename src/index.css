@@ -26,7 +26,10 @@
 
   /* custom font */
   --font-satoshi: "Satoshi";
+
+  
 }
+
 
 /* extending container styles */
 @utility container {

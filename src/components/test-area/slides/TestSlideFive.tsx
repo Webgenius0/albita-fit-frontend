@@ -42,7 +42,7 @@ const TestSlideFive = () => {
 
           {allergyValue === "yes" && (
             <>
-            <QuickInput  dataKey="dd"  />
+            <QuickInput  dataKey="allergy_info"  />
             </>
           )}
         </div>
