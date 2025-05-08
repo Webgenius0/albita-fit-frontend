@@ -3,7 +3,6 @@ import CommonSlideWrapper from "../CommonSlideWrapper";
 import QuickQuestion from "../QuickQuestion";
 import Calendar from "react-calendar";
 import CommonTitle from "@/components/common/CommonTitle";
-// import 'react-calendar/dist/Calendar.css';
 import "../calendar.custom.css";
 import { useAppDispatch } from "@/redux/hooks";
 import { setInfo } from "@/redux/features/testSlice";
