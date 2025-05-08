@@ -2,8 +2,10 @@ import { SessionDataType } from "@/lib/commonTypes";
 import { FaPlay } from "react-icons/fa6";
 
 import bglogo from "@/assets/images/plan-logo-bg.svg";
+import { useNavigate } from "react-router-dom";
 
 const SessionArea = ({ sessionData }: { sessionData: SessionDataType[] }) => {
+  const navigate = useNavigate();
   return (
     <div className="relative px-5 py-10 lg:px-12">
       {/* video Grid Holder */}
@@ -12,6 +14,11 @@ const SessionArea = ({ sessionData }: { sessionData: SessionDataType[] }) => {
           <div
             className="session_card hover:border-primary-pink flex cursor-pointer items-center gap-5 rounded-[13px] border-[1.5px] border-transparent bg-white px-5 py-3 duration-500 ease-in-out hover:drop-shadow-2xl"
             key={index}
+            onClick={() => {
+              return navigate(
+                `/training-session/${item.title.split(" ").join("-")}`,
+              );
+            }}
           >
             {/* thumbnail area */}
             <div className="relative h-20 max-w-20 min-w-20 overflow-hidden rounded-xl">

@@ -19,6 +19,11 @@ import Profile from "@/pages/dashboard/Profile";
 import Tutorials from "@/pages/dashboard/Tutorials";
 import ProfileLinks from "@/components/profile/ProfileLinks";
 import ProfileData from "@/pages/dashboard/ProfileData";
+import UserOnboard from "@/pages/UserOnboard";
+import AccountStatus from "@/pages/AccountStatus";
+import SingleTraining from "@/pages/dashboard/SingleTraining";
+import SelectPlan from "@/pages/SelectPlan";
+import TestArea from "@/pages/dashboard/TestArea";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +72,10 @@ const router = createBrowserRouter([
             path: "/gym-training",
             element: <GymTraining />,
           },
+          {
+            path: "/training-session/:id",
+            element: <SingleTraining />,
+          },
         ],
       },
       {
@@ -104,6 +113,22 @@ const router = createBrowserRouter([
       {
         path: "/reset-password",
         element: <ResetPassword />,
+      },
+      {
+        path: "/onboard",
+        element: <UserOnboard />,
+      },
+      {
+        path: "/account-status",
+        element: <AccountStatus />,
+      },
+      {
+        path: "/select-plan",
+        element: <SelectPlan />,
+      },
+      {
+        path: "/start-test",
+        element: <TestArea />,
       },
     ],
   },

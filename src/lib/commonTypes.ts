@@ -18,3 +18,11 @@ export type DietPlanType = {
   planTitle: string;
   plans: DietCardType[];
 };
+
+export type PlanType = {
+  title: string;
+  heading: string;
+  totalPrice: number;
+  planDuration: number;
+  features: string[];
+};

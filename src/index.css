@@ -26,7 +26,10 @@
 
   /* custom font */
   --font-satoshi: "Satoshi";
+
+  
 }
+
 
 /* extending container styles */
 @utility container {
@@ -123,6 +126,16 @@ body {
 
 .link_arrow_holder:hover div:has(svg) {
   margin-right: -30px;
+}
+
+.age_picker_dialer:has(pointer-events:none) {
+  background-color: red;
+  pointer-events: none;
+}
+
+.age_picker_dialer > div {
+  mask-image: none !important;
+  border-radius: 8px;
 }
 /* custom styles */
 
