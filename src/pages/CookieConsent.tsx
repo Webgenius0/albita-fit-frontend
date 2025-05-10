@@ -3,21 +3,43 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import CommonTitle from "@/components/common/CommonTitle";
 import BackButton from "@/components/common/BackButton";
+import useSaveStore from "@/hooks/data/useSaveStore";
+import { setRegisterInfo } from "@/redux/features/registerSlice";
+import toast from "react-hot-toast";
+import useAxiosPublic from "@/hooks/api/useAxiosPublic";
+import { useAppSelector } from "@/redux/hooks";
 
 const CookieConsent = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const navigate = useNavigate();
+  const saveInfo = useSaveStore();
 
+  const axiosPublic = useAxiosPublic();
+
+  // getting the data
+
+  const userInfo = useAppSelector((state) => state.registerInfo);
   const handleAccept = () => {
     if (termsAccepted) {
-      // Navigate to the welcome page
-      navigate("/welcome");
+      saveInfo({ isCookiesAccepted: true }, setRegisterInfo);
+
+      axiosPublic
+        .post("/", userInfo)
+        .then(() => {
+          // Navigate to the welcome page
+          navigate("/verify-email");
+
+          toast.success("Please check your email for a verification code");
+        })
+        .catch((err) => {
+          toast.error(err.message);
+        });
     }
   };
 
   return (
     <CommonContainer>
-      <BackButton  />
+      <BackButton />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}

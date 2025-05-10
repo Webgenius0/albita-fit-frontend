@@ -4,21 +4,27 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import CommonTitle from "@/components/common/CommonTitle";
 import BackButton from "@/components/common/BackButton";
+import useSaveStore from "@/hooks/data/useSaveStore";
+import { setRegisterInfo } from "@/redux/features/registerSlice";
 
 const RefundPolicy = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const navigate = useNavigate();
 
+  const saveInfo = useSaveStore();
+
   const handleAccept = () => {
     if (termsAccepted) {
       // Navigate to the cookie consent after accepting refund policy
       navigate("/cookie-consent");
+
+      saveInfo({ isRefundPolicyAccepted: true }, setRegisterInfo);
     }
   };
 
   return (
     <CommonContainer>
-      <BackButton  />
+      <BackButton />
 
       <div className="animate-fade-in mx-auto max-w-3xl">
         {/* Header */}

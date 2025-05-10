@@ -24,6 +24,7 @@ import AccountStatus from "@/pages/AccountStatus";
 import SingleTraining from "@/pages/dashboard/SingleTraining";
 import SelectPlan from "@/pages/SelectPlan";
 import TestArea from "@/pages/dashboard/TestArea";
+import VerifyEmailOTP from "@/pages/VerifyEmailOTP";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/verify-email",
+        element: <VerifyEmailOTP />,
       },
       {
         path: "/privacy-policy",

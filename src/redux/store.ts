@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import testReducer from "./features/testSlice";
+import registerReducer from "./features/registerSlice";
 
 export const store = configureStore({
   reducer: {
     test: testReducer,
+    registerInfo: registerReducer,
   },
 });
 
