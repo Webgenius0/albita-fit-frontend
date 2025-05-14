@@ -4,13 +4,22 @@ import CommonContainer from "@/components/common/CommonContainer";
 import CommonParagraph from "@/components/common/CommonParagraph";
 import CommonTitle from "@/components/common/CommonTitle";
 import PinkLogo from "@/components/common/PinkLogo";
+import useAxiosPublic from "@/hooks/api/useAxiosPublic";
+import { useAppSelector } from "@/redux/hooks";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import OTPInput from "react-otp-input";
+import { useNavigate } from "react-router-dom";
 
 const VerifyEmailOTP = () => {
   const [otp, setOtp] = useState("");
 
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
   const [buttonDisable, setButtonDisable] = useState(true);
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
+
+  const registerdEmail = useAppSelector((state) => state.registerInfo.email);
 
   useEffect(() => {
     if (otp.length >= 6) {
@@ -19,6 +28,32 @@ const VerifyEmailOTP = () => {
       setButtonDisable(true);
     }
   }, [otp]);
+
+  const confirmOtp = () => {
+    setIsButtonLoading(true);
+    axiosPublic
+      .post("/auth/verify-otp", {
+        email: registerdEmail,
+        otp: otp,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.success) {
+          // Navigate to the next step
+          navigate("/login");
+
+          // toast message
+          toast.success("Email verified successfully");
+
+          //
+          setIsButtonLoading(false);
+        }
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        setIsButtonLoading(false);
+      });
+  };
 
   return (
     <CommonContainer>
@@ -38,13 +73,19 @@ const VerifyEmailOTP = () => {
             <OTPInput
               value={otp}
               onChange={setOtp}
-              numInputs={4}
+              numInputs={6}
               renderInput={(props) => <input {...props} />}
               inputType="number"
             />
           </div>
 
-          <CommonButton onlyButton text="Confirm" disable={buttonDisable} />
+          <CommonButton
+            onClick={confirmOtp}
+            onlyButton
+            text="Confirm"
+            disable={buttonDisable}
+            isLoading={isButtonLoading}
+          />
         </div>
       </div>
     </CommonContainer>

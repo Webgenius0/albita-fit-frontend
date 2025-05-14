@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { setInfo } from "@/redux/features/testSlice";
 
 // <------ common styles --------->
-const holderStyle = `flex flex-1 flex-col items-center gap-10`;
+const holderStyle = `flex flex-1 flex-col items-center  gap-10`;
 const textStylePrimary = `text-primary-pink text-[64px] font-bold`;
 const arrowStyle = `h-9 w-14`;
 const pickerStyle = `age_picker_dialer  w-[90px]`;
@@ -80,7 +80,7 @@ const TestSlideTwo = () => {
 
   return (
     <CommonSlideWrapper>
-      <div className="flex w-full items-start justify-between gap-20">
+      <div className="flex w-full flex-col items-start justify-between lg:gap-20 lg:flex-row">
         {/* age picker */}
         <div className={holderStyle}>
           <CommonTitle textBold>¿Que edad tienes?</CommonTitle>

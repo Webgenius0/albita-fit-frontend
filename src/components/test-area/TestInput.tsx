@@ -25,7 +25,7 @@ const TestInput = ({ title, type, placeholder, storeKey }: PropTypes) => {
   };
 
   return (
-    <div className="w-full space-y-14">
+    <div className="w-full space-y-6 lg:space-y-14">
       {title && <CommonTitle textBold>{title}</CommonTitle>}
 
       <input

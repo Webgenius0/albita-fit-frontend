@@ -43,6 +43,12 @@ const CommonInput = <T extends FieldValues>({
             message: "Please Fill In the field",
           },
           ...(validateRules && { validate: validateRules }),
+          ...(type === "password" && {
+            minLength: {
+              value: 8,
+              message: "Password must be at least 8 characters",
+            },
+          }),
         })}
       />
       {errorValue && errorValue[name]?.message && (

@@ -1,6 +1,6 @@
 import CommonContainer from "@/components/common/CommonContainer";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CommonTitle from "@/components/common/CommonTitle";
 import BackButton from "@/components/common/BackButton";
 import useSaveStore from "@/hooks/data/useSaveStore";
@@ -8,6 +8,7 @@ import { setRegisterInfo } from "@/redux/features/registerSlice";
 import toast from "react-hot-toast";
 import useAxiosPublic from "@/hooks/api/useAxiosPublic";
 import { useAppSelector } from "@/redux/hooks";
+import LoadingSpinner from "@/components/common/LodingSpinner";
 
 const CookieConsent = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -16,23 +17,43 @@ const CookieConsent = () => {
 
   const axiosPublic = useAxiosPublic();
 
+  const [loading, setLoading] = useState(false);
+
   // getting the data
 
   const userInfo = useAppSelector((state) => state.registerInfo);
+
+  useEffect(() => {
+    if (Object.keys(userInfo).length === 0) {
+      navigate("/register");
+    }
+
+    // eslint-disable-next-line
+  }, [userInfo]);
+
   const handleAccept = () => {
+    setLoading(true);
     if (termsAccepted) {
       saveInfo({ isCookiesAccepted: true }, setRegisterInfo);
 
       axiosPublic
-        .post("/", userInfo)
-        .then(() => {
-          // Navigate to the welcome page
-          navigate("/verify-email");
+        .post("/auth/register", {
+          ...userInfo,
+          isCookiesAccepted: true,
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.success) {
+            // Navigate to the welcome page
+            navigate("/verify-email");
 
-          toast.success("Please check your email for a verification code");
+            toast.success("Please check your email for a verification code");
+            setLoading(false);
+          }
         })
         .catch((err) => {
           toast.error(err.message);
+          setLoading(false);
         });
     }
   };
@@ -115,7 +136,7 @@ const CookieConsent = () => {
                 : "cursor-not-allowed bg-gray-300"
             }`}
           >
-            Aceptar
+            {loading ? <LoadingSpinner /> : "Aceptar"}
           </button>
         </div>
       </div>
