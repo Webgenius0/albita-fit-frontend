@@ -52,8 +52,11 @@ const CookieConsent = () => {
           }
         })
         .catch((err) => {
-          toast.error(err.message);
+          toast.error(err.response.data.message || "An Error Occured");
           setLoading(false);
+
+          // Navigate to the register page
+          navigate("/register");
         });
     }
   };

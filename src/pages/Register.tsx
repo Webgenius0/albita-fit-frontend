@@ -9,6 +9,7 @@ import CommonContainer from "@/components/common/CommonContainer";
 import { useAppDispatch } from "@/redux/hooks";
 import { setRegisterInfo } from "@/redux/features/registerSlice";
 import { useState } from "react";
+
 type Inputs = {
   fullName: string;
   email: string;
