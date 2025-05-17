@@ -9,6 +9,8 @@ import CommonContainer from "@/components/common/CommonContainer";
 import { useAppDispatch } from "@/redux/hooks";
 import { setRegisterInfo } from "@/redux/features/registerSlice";
 import { useState } from "react";
+import toast from "react-hot-toast";
+import useAxiosPublic from "@/hooks/api/useAxiosPublic";
 
 type Inputs = {
   fullName: string;
@@ -23,25 +25,60 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm<Inputs>();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [demoLoading, setDemoLoading] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  const axiosPublic = useAxiosPublic();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    if (!termsAccepted) {
+      toast.error("Por favor acepte los términos y condiciones");
+      return;
+    }
+
     setDemoLoading(true);
     dispatch(
       setRegisterInfo({
         ...data,
+        isTermAccepted: true,
+        isRefundPolicyAccepted: true,
+        isCookiesAccepted: true,
       }),
     );
 
-    setTimeout(() => {
-      setDemoLoading(false);
-      navigate("/privacy-policy");
-    }, 1500);
+    // register the user
+    axiosPublic
+      .post("/auth/register", {
+        ...data,
+        isTermAccepted: true,
+        isRefundPolicyAccepted: true,
+        isCookiesAccepted: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.success) {
+          // Navigate to the welcome page
+          navigate("/verify-email");
+
+          toast.success("Please check your email for a verification code");
+          setDemoLoading(false);
+          navigate("/verify-email");
+        }
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message || "An Error Occured");
+        setDemoLoading(false);
+
+        // reset the form
+        reset();
+        setTermsAccepted(false);
+      });
   };
   return (
     <CommonContainer>
@@ -96,13 +133,72 @@ const Register = () => {
             }}
           />
 
+          {/* Checkbox */}
+          <div className="flex items-start space-x-3">
+            <div
+              className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded border ${
+                termsAccepted
+                  ? "border-[#e16891] bg-[#e16891]"
+                  : "border-gray-300"
+              }`}
+              onClick={() => setTermsAccepted(!termsAccepted)}
+            >
+              {termsAccepted && (
+                <svg
+                  width="12"
+                  height="9"
+                  viewBox="0 0 12 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 4L4.5 7.5L11 1"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </div>
+            <label className="space-x-1 text-sm">
+              Acepto toda la política de{" "}
+              <Link
+                to={"/privacy-policy"}
+                className="text-primary-pink font-semibold hover:underline"
+              >
+                privacidad
+              </Link>
+              ,
+              <Link
+                to={"/refund-policy"}
+                className="text-primary-pink font-semibold hover:underline"
+              >
+                política de reembolso
+              </Link>
+              ,
+              <Link
+                to={"/cookie-consent"}
+                className="text-primary-pink font-semibold hover:underline"
+              >
+                cookies
+              </Link>
+              de AlbitaFit
+            </label>
+          </div>
+
           <div className="text-primary-pink flex justify-center text-sm">
             <Link to="/login" className="font-semibold hover:underline">
               Ya tienes cuenta, inicia sesión
             </Link>
           </div>
 
-          <CommonButton text="Continuar" onlyButton isLoading={demoLoading} />
+          <CommonButton
+            text="Continuar"
+            onlyButton
+            isLoading={demoLoading}
+            disable={!termsAccepted}
+          />
         </form>
 
         {/* Terms */}
