@@ -5,7 +5,7 @@ import CommonParagraph from "@/components/common/CommonParagraph";
 import CommonTitle from "@/components/common/CommonTitle";
 import PinkLogo from "@/components/common/PinkLogo";
 import useAxiosPublic from "@/hooks/api/useAxiosPublic";
-import { setVerifyUserInfo } from "@/redux/features/verifyUserInfoSlice";
+import { setPendingUserInfo } from "@/redux/features/pendingUserInfoSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -43,7 +43,7 @@ const VerifyEmailOTP = () => {
         console.log(res.data);
         if (res.data.success) {
           // Save the user data to the store
-          dispatch(setVerifyUserInfo(res.data.data));
+          dispatch(setPendingUserInfo(res.data.data));
 
           // Navigate to the next step
           navigate("/welcome");
@@ -60,21 +60,6 @@ const VerifyEmailOTP = () => {
         setIsButtonLoading(false);
       });
   };
-
-  //   {
-  //     "code": 200,
-  //     "success": true,
-  //     "message": "Account verified successfully",
-  //     "data": {
-  //         "_id": "6826fd1001da1dfb56b7ec2e",
-  //         "email": "6gsmm4d78k@xkxkud.com",
-  //         "isAdmin": false,
-  //         "isModerator": false,
-  //         "isUser": true,
-  //         "isTestGiven": false,
-  //         "accountStatus": "pending"
-  //     }
-  // }
 
   return (
     <CommonContainer>

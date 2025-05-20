@@ -2,19 +2,19 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import testReducer from "./features/testSlice";
 import registerReducer from "./features/registerSlice";
-import verifyUserInfoReducer from "./features/verifyUserInfoSlice";
+import pendingUserInfoReducer from "./features/pendingUserInfoSlice";
 
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 // persist configuration
-const persistConfig = { key: "root", storage, whitelist: ["verifiedUserInfo"] };
+const persistConfig = { key: "root", storage, whitelist: ["pendingUserInfo"] };
 
 // all reducers combined
 const rootReducer = combineReducers({
   test: testReducer,
   registerInfo: registerReducer,
-  verifiedUserInfo: verifyUserInfoReducer,
+  pendingUserInfo: pendingUserInfoReducer,
 });
 
 // merged the root reducer with the persist configuration that makes a new reducer
