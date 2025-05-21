@@ -123,7 +123,7 @@ const router = createBrowserRouter([
 
   // <----- PUBLIC ROUTES BUT NOT ACCESSABLE AFTER LOGIN ----->
   {
-    path: "",
+    path: "/",
     element: <PublicUserLayout />,
     children: [
       {
@@ -142,15 +142,14 @@ const router = createBrowserRouter([
         path: "/verify-email",
         element: <VerifyEmailOTP />,
       },
-      {
-        path: "/reset-password",
-        element: <ResetPassword />,
-      },
     ],
   },
 
   // <----- PUBLIC ROUTES ACCESSIBLE TO ANYONE ----->
-
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
+  },
   {
     path: "/privacy-policy",
     element: <PrivacyPolicy />,
