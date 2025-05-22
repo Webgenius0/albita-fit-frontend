@@ -71,7 +71,7 @@ const TestSlideOne = () => {
 
   return (
     <CommonSlideWrapper>
-      <div className="flex justify-between gap-[140px]">
+      <div className="flex flex-col justify-between gap-[90px] lg:flex-row lg:gap-[140px]">
         {/* first one */}
         <div className={holderStyle}>
           <TestInput title="Nombre completo" type="text" storeKey="name" />

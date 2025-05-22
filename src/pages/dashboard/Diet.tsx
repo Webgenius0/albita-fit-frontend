@@ -28,14 +28,14 @@ const Diet = () => {
         <BannerCards
           bannerImg={banner1}
           title="Unete a nuestro Plan Oro"
-          targetLink="/"
+          targetLink="/dashboard"
           description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
           targetText="Suscribirme"
         />
         <BannerCards
           bannerImg={banner2}
           title="Los planes de almientación de Alba"
-          targetLink="/diet/nutrition-plan"
+          targetLink="nutrition-plan"
           description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
           targetText="Suscribirme"
         />

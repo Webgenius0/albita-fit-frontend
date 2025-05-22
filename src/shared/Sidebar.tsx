@@ -11,19 +11,19 @@ type linkType = {
 const links: linkType[] = [
   {
     name: "Home",
-    target: "/",
+    target: "/dashboard",
   },
   {
     name: "Perfil",
-    target: "/profile",
+    target: "profile",
   },
   {
     name: "Dieta",
-    target: "/diet",
+    target: "diet",
   },
   {
     name: "Entrena",
-    target: "/home-training",
+    target: "home-training",
   },
 ];
 const Sidebar = () => {

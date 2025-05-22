@@ -24,6 +24,9 @@ import AccountStatus from "@/pages/AccountStatus";
 import SingleTraining from "@/pages/dashboard/SingleTraining";
 import SelectPlan from "@/pages/SelectPlan";
 import TestArea from "@/pages/dashboard/TestArea";
+import VerifyEmailOTP from "@/pages/VerifyEmailOTP";
+import PublicUserLayout from "@/layout/PublicUserLayout";
+import TestLayout from "@/layout/TestLayout";
 
 const router = createBrowserRouter([
   {
@@ -31,53 +34,98 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: "/onboard",
+        element: <UserOnboard />,
+      },
+
+      {
+        path: "/account-status",
+        element: <AccountStatus />,
+      },
+      {
+        path: "/select-plan",
+        element: <SelectPlan />,
+      },
+
+      // dashboard routes for verified users
+      {
+        path: "/dashboard",
         element: <DashboardLayout />,
         children: [
           {
-            path: "/",
+            path: "/dashboard",
             element: <Home />,
           },
           {
-            path: "/profile",
+            path: "profile",
             element: <Profile />,
             children: [
               {
-                path: "/profile",
+                path: "profile",
                 element: <ProfileLinks />,
               },
               {
-                path: "/profile/tutorials",
+                path: "profile/tutorials",
                 element: <Tutorials />,
               },
               {
-                path: "/profile/data",
+                path: "profile/data",
                 element: <ProfileData />,
               },
             ],
           },
           {
-            path: "/diet",
+            path: "diet",
             element: <Diet />,
           },
           {
-            path: "/diet/nutrition-plan",
+            path: "diet/nutrition-plan",
             element: <NutritionPlan />,
           },
           {
-            path: "/home-training",
+            path: "home-training",
             element: <HomeTraining />,
           },
           {
-            path: "/gym-training",
+            path: "gym-training",
             element: <GymTraining />,
           },
           {
-            path: "/training-session/:id",
+            path: "training-session/:id",
             element: <SingleTraining />,
           },
         ],
       },
+    ],
+  },
+
+  // <----- Test ROUTES ----->
+
+  // test routes for users who are email verified and pending to be verified
+  {
+    path: "/",
+    element: <TestLayout />,
+    children: [
+      {
+        path: "/welcome",
+        element: <Welcome />,
+      },
+      {
+        path: "/plans",
+        element: <Plans />,
+      },
+      {
+        path: "/start-test",
+        element: <TestArea />,
+      },
+    ],
+  },
+
+  // <----- PUBLIC ROUTES BUT NOT ACCESSABLE AFTER LOGIN ----->
+  {
+    path: "/",
+    element: <PublicUserLayout />,
+    children: [
       {
         path: "/get-started",
         element: <GetStarted />,
@@ -91,46 +139,28 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/privacy-policy",
-        element: <PrivacyPolicy />,
-      },
-      {
-        path: "/refund-policy",
-        element: <RefundPolicy />,
-      },
-      {
-        path: "/cookie-consent",
-        element: <CookieConsent />,
-      },
-      {
-        path: "/welcome",
-        element: <Welcome />,
-      },
-      {
-        path: "/plans",
-        element: <Plans />,
-      },
-      {
-        path: "/reset-password",
-        element: <ResetPassword />,
-      },
-      {
-        path: "/onboard",
-        element: <UserOnboard />,
-      },
-      {
-        path: "/account-status",
-        element: <AccountStatus />,
-      },
-      {
-        path: "/select-plan",
-        element: <SelectPlan />,
-      },
-      {
-        path: "/start-test",
-        element: <TestArea />,
+        path: "/verify-email",
+        element: <VerifyEmailOTP />,
       },
     ],
+  },
+
+  // <----- PUBLIC ROUTES ACCESSIBLE TO ANYONE ----->
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/privacy-policy",
+    element: <PrivacyPolicy />,
+  },
+  {
+    path: "/refund-policy",
+    element: <RefundPolicy />,
+  },
+  {
+    path: "/cookie-consent",
+    element: <CookieConsent />,
   },
 ]);
 
